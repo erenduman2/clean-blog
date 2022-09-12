@@ -1,0 +1,26 @@
+{
+  "name": "clean-blog",
+  "version": "1.0.0",
+  "description": "node.js homework",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/erenduman2/clean-blog.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/erenduman2/clean-blog/issues"
+  },
+  "homepage": "https://github.com/erenduman2/clean-blog#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}
