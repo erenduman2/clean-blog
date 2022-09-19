@@ -11,7 +11,7 @@ const app = express();
 
 // connection
 // cocfmqjmEPUH3GaR
-mongoose.connect('mongodb+srv://eren:cocfmqjmEPUH3GaR@cluster0.4gsmihb.mongodb.net/?retryWrites=true&w=majority', {
+mongoose.connect('mongodb+srv://eren:cocfmqjmEPUH3GaR@cluster0.4gsmihb.mongodb.net/blog-db?retryWrites=true&w=majority', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
