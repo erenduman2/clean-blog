@@ -11,7 +11,7 @@ Then, you can run:
 
 ### `npm start`
 
-Project will start in http://localhost:5000/.
+Project will start in http://localhost:5000/
 
 ## Tools
 
