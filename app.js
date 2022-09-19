@@ -10,8 +10,8 @@ const pageController = require('./controllers/pageController');
 const app = express();
 
 // connection
-// zIL2Hc5ozU9a9JHv
-mongoose.connect('mongodb://localhost/clean-blog-test-db', {
+// cocfmqjmEPUH3GaR
+mongoose.connect('mongodb+srv://eren:cocfmqjmEPUH3GaR@cluster0.4gsmihb.mongodb.net/?retryWrites=true&w=majority', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
