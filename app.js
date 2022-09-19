@@ -10,6 +10,7 @@ const pageController = require('./controllers/pageController');
 const app = express();
 
 // connection
+// zIL2Hc5ozU9a9JHv
 mongoose.connect('mongodb://localhost/clean-blog-test-db', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
