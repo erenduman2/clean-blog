@@ -14,6 +14,10 @@ const app = express();
 mongoose.connect('mongodb+srv://eren:cocfmqjmEPUH3GaR@cluster0.4gsmihb.mongodb.net/blog-db?retryWrites=true&w=majority', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
+}).then(() => {
+  console.log('DB connected');
+}).catch((err) => {
+  console.log(err);
 });
 
 // ?method=POST eklenmesini sağlar
@@ -41,7 +45,7 @@ app.put('/post/:id', postController.updatePost);
 app.post('/post', postController.createPost);
 app.delete('/post/:id', postController.deletePost);
 
-const port = 3000;
+const port = process.env.PORT || 5000;
 app.listen(port, () => {
   console.log('sunucu basladi');
 });
