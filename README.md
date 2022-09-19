@@ -1,6 +1,5 @@
 # Blog App
 Live: https://clean-blog-app-patika.herokuapp.com/
-<a href="https://clean-blog-app-patika.herokuapp.com/" target="_blank"> Live </a>
 
 ## Usage
 
