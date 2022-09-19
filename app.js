@@ -4,30 +4,18 @@ const mongoose = require('mongoose');
 const ejs = require('ejs');
 const path = require('path');
 
+const postController = require('./controllers/postController');
+const pageController = require('./controllers/pageController');
+
 const app = express();
-const Schema = mongoose.Schema;
 
 // connection
 mongoose.connect('mongodb://localhost/clean-blog-test-db', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-  // useFindAndModify: false,
 });
 
-// CREATE SCHEMA
-const PostSchema = new Schema({
-  name: String,
-  message: String,
-  dateCreated: {
-    type: Date,
-    default: Date.now,
-  },
-});
-
-const Post = mongoose.model('Post', PostSchema);
-
-
-// a etiketine ?method=POST eklenmesini sağlar
+// ?method=POST eklenmesini sağlar
 app.use(
   methodOverride('_method', {
     methods: ['POST', 'GET'],
@@ -41,38 +29,16 @@ app.use(express.static('public'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.get('/', async (req, res) => {
-  const posts = await Post.find({}).sort('-dateCreated');
-  res.render('index', {
-    posts: posts,
-  });
-});
+app.get('/', pageController.getIndexPage);
+app.get('/about', pageController.getAboutPage);
+app.get('/add_post', pageController.getAddPage);
+app.get('/post', pageController.getPostPage);
+app.get('/posts/edit/:id', pageController.getEditPage);
 
-app.get('/about', (req, res) => {
-  console.log(req.body);
-  res.render('about');
-});
-
-app.get('/add_post', (req, res) => {
-  res.render('add_post');
-});
-
-app.get('/post', (req, res) => {
-  res.render('post');
-});
-
-app.get("/posts/:id", async (req, res) => {
-  const post = await Post.findById(req.params.id);
-  res.render('post', {
-    post: post,
-  });
-})
-
-app.post('/post', async (req, res) => {
-  console.log(req.body);
-  await Post.create(req.body)
-  res.redirect("/")
-});
+app.get('/posts/:id', postController.getPost);
+app.put('/post/:id', postController.updatePost);
+app.post('/post', postController.createPost);
+app.delete('/post/:id', postController.deletePost);
 
 const port = 3000;
 app.listen(port, () => {
